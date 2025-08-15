@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Delete Page {% endblock %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+
+    <h3>Are you sure delete this message</h3>
+    <p><strong>Book:</strong>{{ book.title }}</p>
+    <p><strong>Comment:</strong>{{ review.comment }}</p>
+    <a href="{% url 'books:deleted-review' book.id review.id %}" class="btn">Yes</a> <a class="btn" href="{% url 'books:detail' book.id %}">No</a>
+
+{% endblock content %}

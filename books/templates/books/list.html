@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Book List{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/most.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="search-container">
+    <form class="search-form" method="get">
+        <input type="text" name="q" placeholder="Search books..." value="{{ request.GET.q }}">
+        <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+</div>
+
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+
+{% if page_obj %}
+    <ul>
+        {% for book in page_obj.object_list %}
+        <section class="book-list">
+            <div class="container">
+                <div class="book-row">
+                    <img alt="cover image" src="{{ book.cover_picture.url }}">
+                    <div class="book-info">
+                        <a href="{% url 'books:detail' book.id %}"><h3>{{ book.title }}</h3></a>
+                        <p class="author">
+                            {% for book_author in book.bookauthor_set.all %}
+                {% if forloop.last %}
+                {{ book_author.author.full_name }}
+                {% else %}
+                {{ book_author.author.full_name }},
+
+                {% endif %}
+            {% endfor %}
+                        </p>
+                        <button class="btn primary">Add to Shelf</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endfor %}
+
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a class="pagination-btn prev" href="{% url 'books:list' %}?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Previous</a>
+            {% endif %}
+            <span class="page-number">{{ page_obj.number }}</span>
+            {% if page_obj.has_next %}
+                <a class="pagination-btn next" href="{% url 'books:list' %}?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Next</a>
+            {% endif %}
+        </div>
+    </ul>
+{% else %}
+    No books found
+{% endif %}
+{% endblock %}

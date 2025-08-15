@@ -1,0 +1,423 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f1ea;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  background-color: #f3f1e7;
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 30px;
+  color: #372213;
+  font-family: Georgia, serif;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+nav ul li a:hover {
+  color: #c48f00;
+}
+
+nav ul li a.btn {
+  background-color: #f4ce5e;
+  padding: 8px 14px;
+  border-radius: 4px;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #9A7B4F; /* More visible background */
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFFAF0;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #FFFAF0;
+  margin-bottom: 20px;
+}
+
+.btn.primary {
+  background-color: #f4ce5e;
+  padding: 12px 20px;
+  border: none;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
+.btn.primary:hover {
+  background-color: #e5bc3c;
+}
+
+/* Books Section */
+.books {
+  padding: 60px 0;
+  background-color: #fdfdfb;
+}
+
+.books h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #372213;
+  text-align: center;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.book img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.book img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background-color: #f3f1e7;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Book Lists Header */
+.book-list-header {
+  background-color: #fdfdfb;
+  padding: 40px 0 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.book-list-header h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #372213;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+
+/* Book List Rows */
+.book-list {
+  padding: 40px 0;
+  background-color: #fff;
+}
+
+.book-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.book-row img {
+  width: 80px;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.book-info {
+  flex: 1;
+}
+
+.book-info h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.book-info .author {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.rating {
+  font-size: 18px;
+  color: #f4ce5e;
+  margin-bottom: 10px;
+}
+
+/* === Registration Form Styling === */
+.register-form {
+  padding: 60px 0;
+  background-color: #f4f1ea;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-container h2 {
+  font-size: 26px;
+  margin-bottom: 25px;
+  color: #372213;
+  text-align: center;
+}
+
+/* Style form fields */
+form p {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8p
+
+.book-detail-container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  background-color: #f4f1ea;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 40px;
+}
+
+.book-cover img {
+  width: 220px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.book-info {
+  flex: 1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.book-info h2 {
+  margin-bottom: 15px;
+  color: #372213;
+}
+
+.book-info p {
+  margin: 10px 0;
+  color: #333;
+  line-height: 1.5;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #f4ce14;
+  color: #222;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #ddb411;
+}
+
+.profile-container, .profile-edit-container {
+  background-color: #f9f4ec;
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-container h1,
+.profile-edit-container h1 {
+  color: #372213;
+  margin-bottom: 20px;
+}
+
+.profile-info p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #333;
+}
+
+form input, form textarea, form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #f4ce14;
+  color: #222;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddb411;
+}
+
+.book-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.book-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-cover {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.book-details h3 {
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+}
+
+.book-details .author {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.btn.primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn.primary:hover {
+    background-color: #45a049;
+}
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 8px 12px;
+    background: #f4f4f4;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination a:hover {
+    background: #ddd;
+}
+
+.current-page {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.active {
+  background-color: #ff9800; /* Aktiv elementning orqa foni */
+  color: #fff; /* Matn rangi oq */
+  font-weight: bold; /* Matn qalinroq */
+  border-radius: 6px; /* Yumuq burchaklar */
+  padding: 6px 12px; /* Ichki bo‘shliq */
+  transition: background-color 0.3s ease;
+}
+
+.active:hover {
+  background-color: #e68900; /* Hoverda biroz to‘qroq rang */
+}

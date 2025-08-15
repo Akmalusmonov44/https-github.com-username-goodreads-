@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goodreads - Meet your next favorite book</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Goodreads</h1>
+                </div>
+                
+                <nav class="navigation">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="my-books.html" class="nav-link" id="my-books-link" style="display: none;">My Books</a>
+                    <a href="#" class="nav-link">Browse</a>
+                    <a href="#" class="nav-link">Community</a>
+                </nav>
+                
+                <div class="user-section">
+                    <button class="sign-in-btn" id="signInBtn">Sign In</button>
+                    <div class="user-menu" id="userMenu" style="display: none;">
+                        <div class="user-avatar">
+                            <span id="userInitial">U</span>
+                        </div>
+                        <span class="user-name" id="userName">User</span>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <button class="logout-btn" id="logoutBtn">Sign out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Meet your next favorite book</h1>
+            <p class="hero-subtitle">Discover and share books you love on Goodreads</p>
+            <button class="hero-cta" id="heroSignUp" style="display: block;">Sign up</button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Search Bar -->
+            <div class="search-section">
+                <div class="search-bar">
+                    <svg class="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <input type="text" placeholder="Search books, authors..." id="searchInput">
+                </div>
+            </div>
+
+            <!-- Popular Books Section -->
+            <section class="books-section">
+                <h2 class="section-title">Popular this week</h2>
+                <div class="books-grid" id="booksGrid">
+                    <!-- Book cards will be inserted here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Reading Challenge (shown when logged in) -->
+            <section class="reading-challenge" id="readingChallenge" style="display: none;">
+                <div class="challenge-card">
+                    <h3>2025 Reading Challenge</h3>
+                    <div class="progress-container">
+                        <div class="progress-info">
+                            <span>3 of 12 books read</span>
+                            <span>25%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 25%"></div>
+                        </div>
+                        <div class="progress-count">3</div>
+                    </div>
+                    <p class="progress-text">You're 2 books behind schedule.</p>
+                </div>
+            </section>
+
+            <!-- Book Recommendations -->
+            <section class="recommendations" id="recommendations">
+                <div class="recommendations-grid">
+                    <div class="recommendation-card">
+                        <h3>Currently Reading</h3>
+                        <div class="book-mini">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxib29rJTIwY292ZXJzfGVufDB8fHx8MTc1NDE4NTY5NXww&ixlib=rb-4.1.0&q=85" alt="Milk and Honey">
+                            <div class="book-mini-info">
+                                <p class="mini-title">Milk and Honey</p>
+                                <p class="mini-author">Rupi Kaur</p>
+                            </div>
+                        </div>
+                        <div class="book-mini">
+                            <img src="https://images.unsplash.com/photo-1511108690759-009324a90311?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxib29rJTIwY292ZXJzfGVufDB8fHx8MTc1NDE4NTY5NXww&ixlib=rb-4.1.0&q=85" alt="Your Soul">
+                            <div class="book-mini-info">
+                                <p class="mini-title">Your Soul</p>
+                                <p class="mini-author">Contemporary Author</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3>Want to Read</h3>
+                        <div class="book-mini">
+                            <img src="https://images.unsplash.com/photo-1616687551818-a9218cddd2dc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwyfHxiZXN0c2VsbGVyJTIwYm9va3N8ZW58MHx8fHwxNzU0MTkxMTkxfDA&ixlib=rb-4.1.0&q=85" alt="The Subtle Art">
+                            <div class="book-mini-info">
+                                <p class="mini-title">The Subtle Art of Not Giving a F*ck</p>
+                                <p class="mini-author">Mark Manson</p>
+                            </div>
+                        </div>
+                        <div class="book-mini">
+                            <img src="https://images.unsplash.com/photo-1619872553215-8ac017d003f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwzfHxiZXN0c2VsbGVyJTIwYm9va3N8ZW58MHx8fHwxNzU0MTkxMTkxfDA&ixlib=rb-4.1.0&q=85" alt="Zero to One">
+                            <div class="book-mini-info">
+                                <p class="mini-title">Zero to One</p>
+                                <p class="mini-author">Peter Thiel</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <h3>Recommended</h3>
+                        <div class="book-mini">
+                            <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHw0fHxib29rJTIwY292ZXJzfGVufDB8fHx8MTc1NDE4NTY5NXww&ixlib=rb-4.1.0&q=85" alt="How Innovation Works">
+                            <div class="book-mini-info">
+                                <p class="mini-title">How Innovation Works</p>
+                                <p class="mini-author">Matt Ridley</p>
+                            </div>
+                        </div>
+                        <div class="book-mini">
+                            <img src="https://images.unsplash.com/photo-1592496431122-2349e0fbc666?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxib29rJTIwY292ZXJzfGVufDB8fHx8MTc1NDE4NTY5NXww&ixlib=rb-4.1.0&q=85" alt="Classic Literature">
+                            <div class="book-mini-info">
+                                <p class="mini-title">Classic Literature</p>
+                                <p class="mini-author">Various Authors</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Authentication Modal -->
+    <div class="modal-overlay" id="authModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Sign In</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            
+            <form id="authForm" class="auth-form">
+                <div class="form-group" id="nameGroup" style="display: none;">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit" class="auth-submit" id="authSubmit">Sign In</button>
+            </form>
+            
+            <div class="auth-switch">
+                <button class="switch-btn" id="switchBtn">Don't have an account? Sign up</button>
+            </div>
+            
+            <div class="social-auth">
+                <div class="divider">
+                    <span>Or continue with</span>
+                </div>
+                <div class="social-buttons">
+                    <button class="social-btn">Google</button>
+                    <button class="social-btn">Facebook</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

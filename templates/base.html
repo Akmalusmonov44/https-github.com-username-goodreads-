@@ -1,0 +1,87 @@
+{% load static %}
+{% url 'landing_page' as landing_page_url %}
+{% url 'books:list' as books_page_url %}
+{% url 'users:logout' as logout_page_url %}
+{% url 'users:login' as login_page_url %}
+{% url 'users:register' as register_page_url %}
+{% url 'users:profile' as profile_page_url %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Goodreads Clone</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    .active {
+      background-color: #ff9800;
+      color: white !important;
+      font-weight: bold;
+      border-radius: 6px;
+      padding: 6px 12px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="{{ landing_page_url }}"><h1 class="logo">goodreads</h1></a>
+      <nav>
+        <ul>
+          <li>
+            <a class="{% if request.path == landing_page_url %}active{% endif %}" href="{{ landing_page_url }}">Home</a>
+          </li>
+          <li>
+            <a class="{% if request.path == books_page_url %}active{% endif %}" href="{{ books_page_url }}">Books</a>
+          </li>
+
+          {% if request.user.is_authenticated %}
+          <li>
+            <a class="{% if request.path == logout_page_url %}active{% endif %}" href="{{ logout_page_url }}">Logout</a>
+          </li>
+          {% else %}
+          <li>
+            <a class="{% if request.path == login_page_url %}active{% endif %}" href="{{ login_page_url }}">Login</a>
+          </li>
+          <li>
+            <a class="{% if request.path == register_page_url %}active{% endif %}" href="{{ register_page_url }}">Register</a>
+          </li>
+          {% endif %}
+
+          <li>
+            <a class="{% if request.path == profile_page_url %}active{% endif %}" href="{{ profile_page_url }}">Profile</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+ {% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+      <p class="message {{ message.tags }}">{{ message }}</p>
+    {% endfor %}
+  </div>
+{% endif %}
+
+
+  {% block content %}{% endblock %}
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Goodreads Clone. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

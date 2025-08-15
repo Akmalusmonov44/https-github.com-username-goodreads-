@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Books - Goodreads</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Goodreads</h1>
+                </div>
+                
+                <nav class="navigation">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="my-books.html" class="nav-link active">My Books</a>
+                    <a href="#" class="nav-link">Browse</a>
+                    <a href="#" class="nav-link">Community</a>
+                </nav>
+                
+                <div class="user-section">
+                    <div class="user-menu" id="userMenu">
+                        <div class="user-avatar">
+                            <span id="userInitial">U</span>
+                        </div>
+                        <span class="user-name" id="userName">User</span>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <button class="logout-btn" id="logoutBtn">Sign out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="my-books-header">
+                <h1 class="page-title">My Books</h1>
+                <p class="page-subtitle">Welcome back, <span id="welcomeUser">User</span>!</p>
+            </div>
+
+            <!-- Shelf Tabs -->
+            <div class="shelf-tabs">
+                <button class="tab-btn active" data-shelf="want-to-read">
+                    Want to Read (<span id="wantCount">0</span>)
+                </button>
+                <button class="tab-btn" data-shelf="currently-reading">
+                    Currently Reading (<span id="currentCount">0</span>)
+                </button>
+                <button class="tab-btn" data-shelf="read">
+                    Read (<span id="readCount">0</span>)
+                </button>
+            </div>
+
+            <!-- Shelf Content -->
+            <div class="shelf-content">
+                <div class="shelf-books" id="shelfBooks">
+                    <!-- Empty state -->
+                    <div class="empty-shelf" id="emptyShelf">
+                        <div class="empty-icon">
+                            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253z" />
+                            </svg>
+                        </div>
+                        <h3>No books in this shelf</h3>
+                        <p>Start adding books to your <span id="shelfName">Want to Read</span> shelf!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

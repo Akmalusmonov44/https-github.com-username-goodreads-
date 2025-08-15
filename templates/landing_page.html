@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #00635d;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #004c47;
+}
+</style>
+<link rel="stylesheet" href="{% static 'css/landing.css' %}">
+<section class="hero">
+  <div class="container">
+    <h2>Discover & Share Books You Love</h2>
+    <p>Find your next great read on Goodreads.</p>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'books:list' %}" class="btn primary">Books</a>
+    {% else %}
+      <a href="{% url 'users:register' %}" class="btn primary">Create a free account</a>
+    {% endif %}
+  </div>
+</section>
+
+<section class="books">
+  <div class="container">
+    <h3>Popular on Goodreads</h3>
+
+    <div class="book-grid">
+      {% for review in page_obj %}
+        <div class="book-card">
+          <div class="user-avatar">
+            <img src="{{ review.user.profile_picture.url }}" alt="{{ review.user.username }}">
+          </div>
+          <h4>{{ review.book.title }}</h4>
+          <p class="comment">{{ review.comment|truncatewords:20 }}</p>
+          <p class="rating">⭐ {{ review.stars_given }}/5</p>
+          <small class="author">by {{ review.user.username }}</small>
+          <p class="author">{{ review.created_at }}</p>
+        </div>
+      {% empty %}
+        <p>No reviews yet.</p>
+
+      {% endfor %}
+      <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a class="btn prev" href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Previous</a>
+            {% endif %}
+            <span class="page-number">{{ page_obj.number }}</span>
+            {% if page_obj.has_next %}
+                <a class="btn next" href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Next</a>
+            {% endif %}
+        </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock content %}

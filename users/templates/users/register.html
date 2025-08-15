@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Ro'yxatdan o'tish{% endblock title %}
+
+{% block content %}
+<section class="register-form">
+  <div class="container form-container">
+    <h2>Foydalanuvchi Ro'yxatdan O'tish</h2>
+
+    <form action="{% url 'users:register' %}" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn primary">Submit</button>
+    </form>
+  </div>
+</section>
+{% endblock content %}

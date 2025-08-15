@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ book.title }} - Book Details{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+
+<div class="book-detail-container">
+
+    <div class="book-cover">
+        <img alt="cover image" src="{{ book.cover_picture.url }}">
+    </div>
+
+    <div class="book-info">
+        <h2>{{ book.title }}</h2>
+        <p><strong>Author:</strong>
+            {% for book_author in book.bookauthor_set.all %}
+                {% if forloop.last %}
+                {{ book_author.author.full_name }}
+                {% else %}
+                {{ book_author.author.full_name }},
+
+                {% endif %}
+            {% endfor %}
+        </p>
+        <p><strong>Description:</strong> {{ book.description }}</p>
+        <p><strong>Published:</strong> {{ book.created_at }}</p>
+
+        <a href="" class="btn">Add to Shelf</a>
+        <div class="review-form-container">
+            <h4>Write a Review</h4>
+            <form method="post" action="{% url 'books:review' book.id %}">
+                {% csrf_token %}
+
+                <div class="rating-stars">
+                    {{ review_form.stars_given }}
+                </div>
+
+                <div class="form-field">
+                    {{ review_form.comment }}
+                </div>
+
+                <button type="submit" class="submit-review">Submit Review</button>
+            </form>
+        </div>
+
+        <div class="slide">
+            {% if book.bookreview_set.exists %}
+            <h4>Reviews</h4>
+            <div class="reviews-slide">
+                {% for review in book.bookreview_set.all %}
+                    <div class="review-item">
+                        <img alt="Profile" class="review-profile-pic" src="{{ review.user.profile_picture.url }}">
+
+                        <div class="review-details">
+                            <p class="review-meta">
+                                <strong class="review-username">{{ review.user.username }}</strong> rated it
+                                <span class="review-stars">{{ review.stars_given }} stars</span>
+                                <span class="review-date">{{ review.created_at }}</span>
+                                {% if review.user == request.user %}
+                                <a href="{% url 'books:edit' book.id review.id %}">updated</a>
+                                <a href="{% url 'books:delete-review' book.id review.id %}">delete</a>
+                                {% endif %}
+                            </p>
+                            <p class="review-comment">{{ review.comment }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
